@@ -1,0 +1,15 @@
+services:
+  pgsql:
+    image: postgres:15
+    container_name: velobug_db
+    environment:
+      POSTGRES_DB: velobug
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - velobug_pgdata:/var/lib/postgresql/data
+
+volumes:
+  velobug_pgdata:
