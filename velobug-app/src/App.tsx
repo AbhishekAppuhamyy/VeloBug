@@ -4,6 +4,8 @@ import Register from './pages/auth/Register'
 import Dashboard from './pages/dashboard/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import Projects from './pages/dashboard/Projects'
+import Tasks from './pages/dashboard/Tasks'
+import Kanban from './pages/dashboard/Kanban'
 
 function App() {
   return (
@@ -27,6 +29,23 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/tasks"
+        element={
+          <ProtectedRoute>
+            <Tasks />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/kanban"
+        element={
+          <ProtectedRoute>
+            <Kanban />
+          </ProtectedRoute>
+        }
+      />  
     </Routes>
   )
 }

@@ -10,6 +10,7 @@ import {
   Menu,
   X,
   Bell,
+  Kanban,
 } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
 import { authApi } from '../api/auth'
@@ -20,6 +21,7 @@ const navItems = [
   { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
   { label: 'Projects', icon: FolderKanban, path: '/projects' },
   { label: 'My Tasks', icon: CheckSquare, path: '/tasks' },
+  { label: 'Kanban', icon: Kanban, path: '/kanban' },
   { label: 'Team', icon: Users, path: '/team' },
   { label: 'Settings', icon: Settings, path: '/settings' },
 ]
