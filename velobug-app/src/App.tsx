@@ -6,11 +6,12 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Projects from './pages/dashboard/Projects'
 import Tasks from './pages/dashboard/Tasks'
 import Kanban from './pages/dashboard/Kanban'
+import Home from './pages/Home'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route
