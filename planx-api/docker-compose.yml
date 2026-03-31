@@ -1,15 +1,15 @@
 services:
   pgsql:
     image: postgres:15
-    container_name: velobug_db
+    container_name: planx_db
     environment:
-      POSTGRES_DB: velobug
+      POSTGRES_DB: planx
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
     ports:
       - "5433:5432"
     volumes:
-      - velobug_pgdata:/var/lib/postgresql/data
+      - planx_pgdata:/var/lib/postgresql/data
 
 volumes:
-  velobug_pgdata:
+  planx_pgdata:
