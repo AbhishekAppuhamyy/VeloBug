@@ -51,20 +51,20 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0A0A] flex items-center justify-center px-4 relative overflow-hidden">
 
       {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-900/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-red-500/10 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
 
       {/* Animated grid background */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(90deg, #6366f1 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(#ef4444 1px, transparent 1px), linear-gradient(90deg, #ef4444 1px, transparent 1px)',
           backgroundSize: '50px 50px',
         }}
       />
@@ -74,7 +74,7 @@ export default function Register() {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-purple-400/40 rounded-full animate-bounce"
+            className="absolute w-1 h-1 bg-red-400/40 rounded-full animate-bounce"
             style={{
               right: `${15 + i * 15}%`,
               top: `${20 + (i % 3) * 25}%`,
@@ -89,21 +89,21 @@ export default function Register() {
 
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 mb-4 shadow-lg shadow-indigo-500/25">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br from-red-500 to-red-700 mb-4 shadow-lg shadow-red-500/25">
             <Zap size={28} className="text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-white">
-            Velo<span className="text-indigo-500">Bug</span>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
+            Plan<span className="text-red-500">X</span>
           </h1>
-          <p className="text-gray-400 mt-2 text-sm">Create your free account and start shipping</p>
+          <p className="text-gray-600 mt-2 text-sm dark:text-gray-400">Create your free account and start shipping</p>
         </div>
 
         {/* Card */}
         <div className="relative">
           {/* Card glow effect */}
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl opacity-20 blur" />
+          <div className="absolute -inset-0.5 bg-linear-to-r from-red-500 to-red-700 rounded-2xl opacity-20 blur" />
 
-          <div className="relative bg-[#111827] rounded-2xl p-8 shadow-2xl border border-gray-800">
+          <div className="relative bg-white dark:bg-[#111111] rounded-2xl p-8 shadow-2xl border border-gray-200 dark:border-gray-800">
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
@@ -111,7 +111,7 @@ export default function Register() {
               <div>
                 <label className={cn(
                   'block text-sm font-medium mb-1.5 transition-colors duration-200',
-                  focused === 'name' ? 'text-indigo-400' : 'text-gray-300'
+                  focused === 'name' ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'
                 )}>
                   Full Name
                 </label>
@@ -123,15 +123,15 @@ export default function Register() {
                     onFocus={() => setFocused('name')}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      'w-full bg-gray-900/80 border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-all duration-200',
+                      'w-full bg-white dark:bg-gray-900/80 border rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all duration-200',
                       focused === 'name'
-                        ? 'border-indigo-500 shadow-lg shadow-indigo-500/10'
-                        : 'border-gray-700 hover:border-gray-600',
+                        ? 'border-red-500 shadow-lg shadow-red-500/10'
+                        : 'border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
                       errors.name && 'border-red-500'
                     )}
                   />
                   {focused === 'name' && (
-                    <div className="absolute inset-0 rounded-xl bg-indigo-500/5 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-xl bg-red-500/5 pointer-events-none" />
                   )}
                 </div>
                 {errors.name && (
@@ -146,7 +146,7 @@ export default function Register() {
               <div>
                 <label className={cn(
                   'block text-sm font-medium mb-1.5 transition-colors duration-200',
-                  focused === 'email' ? 'text-indigo-400' : 'text-gray-300'
+                  focused === 'email' ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'
                 )}>
                   Email address
                 </label>
@@ -158,15 +158,15 @@ export default function Register() {
                     onFocus={() => setFocused('email')}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      'w-full bg-gray-900/80 border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none transition-all duration-200',
+                      'w-full bg-white dark:bg-gray-900/80 border rounded-xl px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all duration-200',
                       focused === 'email'
-                        ? 'border-indigo-500 shadow-lg shadow-indigo-500/10'
-                        : 'border-gray-700 hover:border-gray-600',
+                        ? 'border-red-500 shadow-lg shadow-red-500/10'
+                        : 'border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
                       errors.email && 'border-red-500'
                     )}
                   />
                   {focused === 'email' && (
-                    <div className="absolute inset-0 rounded-xl bg-indigo-500/5 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-xl bg-red-500/5 pointer-events-none" />
                   )}
                 </div>
                 {errors.email && (
@@ -181,7 +181,7 @@ export default function Register() {
               <div>
                 <label className={cn(
                   'block text-sm font-medium mb-1.5 transition-colors duration-200',
-                  focused === 'password' ? 'text-indigo-400' : 'text-gray-300'
+                  focused === 'password' ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'
                 )}>
                   Password
                 </label>
@@ -193,20 +193,20 @@ export default function Register() {
                     onFocus={() => setFocused('password')}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      'w-full bg-gray-900/80 border rounded-xl px-4 py-3 pr-12 text-white placeholder-gray-600 focus:outline-none transition-all duration-200',
+                      'w-full bg-white dark:bg-gray-900/80 border rounded-xl px-4 py-3 pr-12 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all duration-200',
                       focused === 'password'
-                        ? 'border-indigo-500 shadow-lg shadow-indigo-500/10'
-                        : 'border-gray-700 hover:border-gray-600',
+                        ? 'border-red-500 shadow-lg shadow-red-500/10'
+                        : 'border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
                       errors.password && 'border-red-500'
                     )}
                   />
                   {focused === 'password' && (
-                    <div className="absolute inset-0 rounded-xl bg-indigo-500/5 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-xl bg-red-500/5 pointer-events-none" />
                   )}
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors z-10"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors z-10"
                   >
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -223,7 +223,7 @@ export default function Register() {
               <div>
                 <label className={cn(
                   'block text-sm font-medium mb-1.5 transition-colors duration-200',
-                  focused === 'confirm' ? 'text-indigo-400' : 'text-gray-300'
+                  focused === 'confirm' ? 'text-red-500 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'
                 )}>
                   Confirm Password
                 </label>
@@ -235,20 +235,20 @@ export default function Register() {
                     onFocus={() => setFocused('confirm')}
                     onBlur={() => setFocused(null)}
                     className={cn(
-                      'w-full bg-gray-900/80 border rounded-xl px-4 py-3 pr-12 text-white placeholder-gray-600 focus:outline-none transition-all duration-200',
+                      'w-full bg-white dark:bg-gray-900/80 border rounded-xl px-4 py-3 pr-12 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none transition-all duration-200',
                       focused === 'confirm'
-                        ? 'border-indigo-500 shadow-lg shadow-indigo-500/10'
-                        : 'border-gray-700 hover:border-gray-600',
+                        ? 'border-red-500 shadow-lg shadow-red-500/10'
+                        : 'border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600',
                       errors.password_confirmation && 'border-red-500'
                     )}
                   />
                   {focused === 'confirm' && (
-                    <div className="absolute inset-0 rounded-xl bg-indigo-500/5 pointer-events-none" />
+                    <div className="absolute inset-0 rounded-xl bg-red-500/5 pointer-events-none" />
                   )}
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors z-10"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors z-10"
                   >
                     {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
@@ -265,10 +265,10 @@ export default function Register() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="relative w-full group overflow-hidden bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 flex items-center justify-center gap-2 mt-2"
+                className="relative w-full group overflow-hidden bg-linear-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-semibold py-3 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/25 hover:shadow-red-500/40 flex items-center justify-center gap-2 mt-2"
               >
                 {/* Shimmer effect */}
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                <div className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -286,15 +286,15 @@ export default function Register() {
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
-              <div className="flex-1 h-px bg-gray-800" />
-              <span className="text-gray-600 text-xs">Already have an account?</span>
-              <div className="flex-1 h-px bg-gray-800" />
+              <div className="flex-1 h-px bg-gray-300 dark:bg-gray-800" />
+              <span className="text-gray-500 text-xs">Already have a PlanX account?</span>
+              <div className="flex-1 h-px bg-gray-300 dark:bg-gray-800" />
             </div>
 
             {/* Login link */}
             <Link
               to="/login"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-gray-700 hover:border-indigo-500/50 text-gray-300 hover:text-white text-sm font-medium transition-all duration-200 hover:bg-indigo-500/5"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-red-500/50 text-gray-700 dark:text-gray-300 hover:text-red-500 dark:hover:text-white text-sm font-medium transition-all duration-200 hover:bg-red-500/5"
             >
               Sign in instead
               <ArrowRight size={16} />
@@ -304,11 +304,11 @@ export default function Register() {
         </div>
 
         {/* Bottom text */}
-        <p className="text-center text-gray-600 text-xs mt-6">
+        <p className="text-center text-gray-500 dark:text-gray-600 text-xs mt-6">
           By creating an account, you agree to our{' '}
-          <span className="text-gray-500 hover:text-gray-400 cursor-pointer transition-colors">Terms</span>
+          <span className="text-gray-600 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-300 cursor-pointer transition-colors">Terms</span>
           {' '}and{' '}
-          <span className="text-gray-500 hover:text-gray-400 cursor-pointer transition-colors">Privacy Policy</span>
+          <span className="text-gray-600 dark:text-gray-500 hover:text-red-500 dark:hover:text-red-300 cursor-pointer transition-colors">Privacy Policy</span>
         </p>
 
       </div>

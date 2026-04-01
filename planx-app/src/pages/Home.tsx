@@ -8,11 +8,11 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <div className="min-h-screen bg-slate-50 text-gray-900 dark:bg-[#0A0A0A] dark:text-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
       {/* Ambient background effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-red-700/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-red-900/10 blur-[100px]" />
+        <div className="absolute top-[-20%] left-[-10%] w-150 h-150 rounded-full bg-red-700/10 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-125 h-125 rounded-full bg-red-900/10 blur-[100px]" />
         {/* Grid overlay */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -47,7 +47,7 @@ export default function Home() {
             </span>{' '}
             task generation
           </h1>
-          <p className="text-gray-400 text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+          <p className="text-gray-600 text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light dark:text-gray-400">
             VeloBug combines the power of Kanban boards, sprint planning, and AI task generation
             to help your team ship faster. Say goodbye to planning overhead.
           </p>
@@ -68,7 +68,7 @@ export default function Home() {
             </Link>
             <Link
               to="/login"
-              className="flex items-center gap-2 text-gray-300 hover:text-white font-semibold px-8 py-3.5 rounded-xl transition-all text-lg border border-gray-700 hover:border-red-500/50 bg-white/[0.02] hover:bg-red-500/5"
+              className="flex items-center gap-2 text-gray-700 hover:text-red-500 font-semibold px-8 py-3.5 rounded-xl transition-all text-lg border border-gray-300 hover:border-red-500/50 bg-white/70 hover:bg-red-500/5 dark:text-gray-300 dark:hover:text-white dark:border-gray-700 dark:bg-white/2"
             >
               Sign in
             </Link>
@@ -83,7 +83,7 @@ export default function Home() {
             ].map((stat, i) => (
               <div key={stat.label} className="text-center relative">
                 {i > 0 && (
-                  <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-px h-8 bg-gray-800 hidden md:block" />
+                  <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-px h-8 bg-gray-300 hidden md:block dark:bg-gray-800" />
                 )}
                 <p
                   className="text-3xl font-black"
@@ -96,7 +96,7 @@ export default function Home() {
                 >
                   {stat.value}
                 </p>
-                <p className="text-gray-600 text-sm mt-1 tracking-wide">{stat.label}</p>
+                <p className="text-gray-500 text-sm mt-1 tracking-wide dark:text-gray-600">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -107,18 +107,16 @@ export default function Home() {
       <section className="relative px-6 pb-20">
         <div className="max-w-6xl mx-auto">
           <div
-            className="rounded-2xl p-4 shadow-2xl"
+            className="rounded-2xl p-4 shadow-2xl bg-white border border-red-500/20 dark:bg-[#111111]"
             style={{
-              background: '#111111',
-              border: '1px solid rgba(220,38,38,0.15)',
               boxShadow: '0 0 60px rgba(220,38,38,0.08), 0 40px 80px rgba(0,0,0,0.6)',
             }}
           >
-            <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-900">
+            <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-200 dark:border-gray-900">
               <div className="w-3 h-3 rounded-full bg-red-600/80"></div>
               <div className="w-3 h-3 rounded-full bg-gray-600/80"></div>
               <div className="w-3 h-3 rounded-full bg-gray-700/80"></div>
-              <div className="flex-1 bg-black/60 rounded-lg px-4 py-1.5 text-gray-600 text-xs ml-4 border border-gray-800">
+              <div className="flex-1 bg-white rounded-lg px-4 py-1.5 text-gray-500 text-xs ml-4 border border-gray-300 dark:bg-black/60 dark:text-gray-600 dark:border-gray-800">
                 app.velobug.io/kanban
               </div>
             </div>
@@ -130,23 +128,19 @@ export default function Home() {
                 { title: 'Done', borderColor: 'border-green-700', tasks: ['Project setup', 'Docker configuration', 'Laravel Sanctum'] },
               ].map(col => (
                 <div key={col.title} className={`border-t-2 ${col.borderColor} pt-3`}>
-                  <p className="text-white text-xs font-bold mb-2 tracking-wide">
-                    {col.title} <span className="text-gray-600">{col.tasks.length}</span>
+                  <p className="text-gray-900 text-xs font-bold mb-2 tracking-wide dark:text-white">
+                    {col.title} <span className="text-gray-500 dark:text-gray-600">{col.tasks.length}</span>
                   </p>
                   <div className="space-y-2">
                     {col.tasks.map(task => (
                       <div
                         key={task}
-                        className="rounded-lg p-2.5"
-                        style={{
-                          background: '#0D0D0D',
-                          border: '1px solid rgba(255,255,255,0.05)',
-                        }}
+                        className="rounded-lg p-2.5 bg-gray-50 border border-gray-200 dark:bg-[#0D0D0D] dark:border-white/5"
                       >
-                        <p className="text-gray-400 text-xs">{task}</p>
+                        <p className="text-gray-600 text-xs dark:text-gray-400">{task}</p>
                         <div className="flex items-center gap-1 mt-2">
                           <div className="w-4 h-4 rounded-full" style={{ background: 'linear-gradient(135deg, #dc2626, #7f1d1d)' }}></div>
-                          <div className="flex-1 h-1 bg-gray-800 rounded-full">
+                          <div className="flex-1 h-1 bg-gray-300 rounded-full dark:bg-gray-800">
                             <div className="h-1 rounded-full w-2/3" style={{ background: 'linear-gradient(90deg, #dc2626, #ef4444)' }}></div>
                           </div>
                         </div>
@@ -161,11 +155,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative px-6 py-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <section id="features" className="relative px-6 py-20 border-t border-gray-200 dark:border-white/5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black mb-4 tracking-tight">Everything your team needs</h2>
-            <p className="text-gray-500 text-lg">Built for developers, by developers</p>
+            <p className="text-gray-600 text-lg dark:text-gray-500">Built for developers, by developers</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -178,25 +172,13 @@ export default function Home() {
             ].map(feature => (
               <div
                 key={feature.title}
-                className="group rounded-2xl p-6 transition-all duration-300 cursor-default"
-                style={{
-                  background: '#111111',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.border = '1px solid rgba(220,38,38,0.25)'
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(220,38,38,0.06)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.border = '1px solid rgba(255,255,255,0.05)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
+                className="group rounded-2xl p-6 transition-all duration-300 cursor-default bg-white border border-gray-200 hover:border-red-300 hover:shadow-[0_0_30px_rgba(220,38,38,0.06)] dark:bg-[#111111] dark:border-white/5 dark:hover:border-red-500/25"
               >
                 <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 border ${feature.accent}`}>
                   <feature.icon size={20} />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">{feature.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-gray-900 font-bold text-lg mb-2 dark:text-white">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed dark:text-gray-500">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -204,11 +186,11 @@ export default function Home() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="relative px-6 py-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <section id="how-it-works" className="relative px-6 py-20 border-t border-gray-200 dark:border-white/5">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black mb-4 tracking-tight">How VeloBug works</h2>
-            <p className="text-gray-500 text-lg">From idea to shipped in minutes</p>
+            <p className="text-gray-600 text-lg dark:text-gray-500">From idea to shipped in minutes</p>
           </div>
           <div className="space-y-5">
             {[
@@ -216,7 +198,7 @@ export default function Home() {
               { step: '02', title: 'AI generates your tasks', description: "VeloBug's AI engine breaks it down into tasks, subtasks, priorities, and effort estimates automatically.", gradient: 'linear-gradient(135deg, #b91c1c 0%, #991b1b 100%)' },
               { step: '03', title: 'Review and import', description: 'Preview the generated tasks, edit if needed, then import them directly into your Kanban board.', gradient: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)' },
               { step: '04', title: 'Ship faster', description: 'Your team picks up tasks, tracks progress, and ships features — all in one place.', gradient: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)' },
-            ].map((step, i) => (
+            ].map(step => (
               <div key={step.step} className="flex gap-5 items-start group">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-black text-sm shrink-0"
@@ -225,20 +207,10 @@ export default function Home() {
                   {step.step}
                 </div>
                 <div
-                  className="flex-1 rounded-xl p-5 transition-all duration-300"
-                  style={{
-                    background: '#111111',
-                    border: '1px solid rgba(255,255,255,0.05)',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.border = '1px solid rgba(220,38,38,0.2)'
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.border = '1px solid rgba(255,255,255,0.05)'
-                  }}
+                  className="flex-1 rounded-xl p-5 transition-all duration-300 bg-white border border-gray-200 hover:border-red-300 dark:bg-[#111111] dark:border-white/5 dark:hover:border-red-500/20"
                 >
-                  <h3 className="text-white font-bold text-lg mb-1">{step.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-gray-900 font-bold text-lg mb-1 dark:text-white">{step.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed dark:text-gray-500">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -247,10 +219,10 @@ export default function Home() {
       </section>
 
       {/* Stack Section */}
-      <section id="stack" className="relative px-6 py-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <section id="stack" className="relative px-6 py-20 border-t border-gray-200 dark:border-white/5">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-black mb-4 tracking-tight">Built with modern tech</h2>
-          <p className="text-gray-500 text-lg mb-12">A powerful, free, and open stack</p>
+          <p className="text-gray-600 text-lg mb-12 dark:text-gray-500">A powerful, free, and open stack</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
               { name: 'React + Vite', desc: 'Frontend' },
@@ -264,19 +236,10 @@ export default function Home() {
             ].map(tech => (
               <div
                 key={tech.name}
-                className="rounded-xl p-4 transition-all duration-300 cursor-default"
-                style={{ background: '#111111', border: '1px solid rgba(255,255,255,0.05)' }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.border = '1px solid rgba(220,38,38,0.25)'
-                  e.currentTarget.style.background = 'rgba(220,38,38,0.04)'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.border = '1px solid rgba(255,255,255,0.05)'
-                  e.currentTarget.style.background = '#111111'
-                }}
+                className="rounded-xl p-4 transition-all duration-300 cursor-default bg-white border border-gray-200 hover:border-red-300 hover:bg-red-50/40 dark:bg-[#111111] dark:border-white/5 dark:hover:border-red-500/25 dark:hover:bg-red-500/4"
               >
-                <p className="text-white font-bold text-sm">{tech.name}</p>
-                <p className="text-gray-600 text-xs mt-1">{tech.desc}</p>
+                <p className="text-gray-900 font-bold text-sm dark:text-white">{tech.name}</p>
+                <p className="text-gray-500 text-xs mt-1 dark:text-gray-600">{tech.desc}</p>
               </div>
             ))}
           </div>
@@ -284,14 +247,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative px-6 py-20" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <section className="relative px-6 py-20 border-t border-gray-200 dark:border-white/5">
         {/* Glow behind CTA */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[600px] h-[200px] rounded-full bg-red-700/10 blur-[80px]" />
+          <div className="w-150 h-50 rounded-full bg-red-700/10 blur-[80px]" />
         </div>
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="text-4xl font-black mb-4 tracking-tight">Ready to ship faster?</h2>
-          <p className="text-gray-500 text-lg mb-8">
+          <p className="text-gray-600 text-lg mb-8 dark:text-gray-500">
             Join developers who use VeloBug to plan and ship projects with AI.
           </p>
           <Link
